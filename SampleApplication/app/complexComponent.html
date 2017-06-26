@@ -1,0 +1,21 @@
+﻿<section class="mainbar" data-ng-controller="complexController as vm">
+    <div class="widget-content user">
+        <div class="demo-section k-header">
+            <div kendo-toolbar k-options="vm.toolbarOptions"></div>
+        </div>
+        <ul kendo-panel-bar="panelBar" k-scope-field="panelBar" k-options="vm.panelBarOptions" style="max-width: 900px">
+            <li id="companyPanel" class="k-state-active">
+                <span>Company Details</span>
+                <div style="padding: 10px;">
+
+                </div>
+            </li>
+            <li class="k-state-active">
+                <span>Company People</span>
+                <div style="padding: 10px;">
+                    <!--<kendo-grid id="peopleGrid" k-scope-field="peopleGrid" options="vm.mainGridOptions" k-rebind="vm.mainGridOptions"></kendo-grid>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<!-- define angular app -->
+<html ng-app="app">
+<head>
+    <!-- Vendor Scripts -->
+    <script src="scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Kendo Scripts -->
+    <!-- Common Kendo UI CSS for web widgets and widgets for data visualization. -->
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+
+    <!-- (Optional) RTL CSS for Kendo UI widgets for the web. Include only in right-to-left applications. -->
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Default Kendo UI theme CSS for web widgets and widgets for data visualization. -->
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+
+    <!-- (Optional) Kendo UI Hybrid CSS. Include only if you will use the mobile devices features. -->
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery JavaScript -->
+    <!--<script src="kendo/js/jquery.min.js"></script>-->
+    <!-- Kendo UI combined JavaScript -->
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <!--insert app created controllers and componenets here-->
+    <script src="script.js"></script>
+    <script src="app/aboutController.js"></script>
+    <script src="app/contactController.js"></script>
+
+
+    <script src="app/simpleComponent.js"></script>
+    <script src="app/complexController.js"></script>
+    <script src="app/complexComponent.js"></script>
+    
+</head>
+<!-- define angular controller -->
+<body ng-controller="mainController">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Angular Example</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="main">
+
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+
+    </div>
+
+    <footer class="text-center">
+    </footer>
+
+</body>
+</html>
