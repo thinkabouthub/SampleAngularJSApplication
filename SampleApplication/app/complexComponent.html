@@ -3,19 +3,45 @@
         <div class="demo-section k-header">
             <div kendo-toolbar k-options="vm.toolbarOptions"></div>
         </div>
-        <ul kendo-panel-bar="panelBar" k-scope-field="panelBar" k-options="vm.panelBarOptions" style="max-width: 900px">
-            <li id="companyPanel" class="k-state-active">
-                <span>Company Details</span>
-                <div style="padding: 10px;">
+        <form name="suburbForm" kendo-validator="validator" ng-submit="validate($event)" ng-model="isValid" style="width: 50%;">
+            <ul kendo-panel-bar="panelBar" k-scope-field="panelBar" k-options="vm.panelBarOptions" style="max-width: 900px">
+                <li id="companyPanel" class="k-state-active">
+                    <span>Panel Suburb</span>
+                    <div style="padding: 10px;">
+                        <div class="form-group">
+                            <label for="suburb">Suburb*</label>
+                            <select ng-disabled="!editingData" k-scope-field="suburb" name="suburb" id="suburb" style="width: 30%;"
+                                    k-ng-model="$ctrl.data.suburbId"
+                                    kendo-drop-down-list
+                                    k-data-text-field="'name'"
+                                    k-data-value-field="'id'"
+                                    k-data-source="suburbs"
+                                    k-data-bound="dataBound"
+                                    data-value-primitive="true"
+                                    k-change="onSuburbChange"
+                                    required></select>
+                        </div>
+                        <div class="form-group">
+                            <label style="width: 130px" for="postCode">Post Code:</label>
+                            <input ng-disabled="true" style="width: 50px" id="postCode" ng-model="postCode" />
+                            <label style="width: 50px" for="state">State:</label>
+                            <input ng-disabled="true" style="width: 100px" id="state" ng-model="state" />
+                            <label style="width: 50px" for="country">Country:</label>
+                            <input ng-disabled="true" style="width: 100px" id="country" ng-model="country" />
+                        </div>
 
-                </div>
-            </li>
-            <li class="k-state-active">
-                <span>Company People</span>
-                <div style="padding: 10px;">
-                    <!--<kendo-grid id="peopleGrid" k-scope-field="peopleGrid" options="vm.mainGridOptions" k-rebind="vm.mainGridOptions"></kendo-grid>-->
-                </div>
-            </li>
-        </ul>
+                        <div class="form-group">
+                            <button style="width: 50px" id="validate" content ng-click="validate($event)">Validate</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="k-state-active">
+                    <span>Other Panel</span>
+                    <div style="padding: 10px;">
+
+                    </div>
+                </li>
+            </ul>
+        </form>
     </div>
 </section>

@@ -1,16 +1,28 @@
 ﻿(function () {
-    angular.module('app').controller('complexController',
-        function ($scope) {
-                var vm = this;
+    angular.module('app').controller('complexController', 
+        function ($scope, suburbService, $filter) {
+            var vm = this;
 
-                $scope.$ctrl.data = { firstName: "Susan", lastName: "Terry", middleName: "Ann" };
+                $scope.editingData = true;
 
-                //$scope.$on("kendoWidgetCreated",
-                //    function() {
-                //        if ($scope.validator) {
-                //            console.log("validator exists");
-                //        }
-                //    });
+                suburbService.list()
+                .then(function (result) {
+                    $scope.suburbs = result;
+                })
+                .catch(function (error) {
+                    //handle error
+                    var t = error;
+                });
+
+
+                $scope.$ctrl.data = { firstName: "Susan", lastName: "Terry", middleName: "Ann", suburbId: null };
+
+                $scope.$on("kendoWidgetCreated",
+                    function() {
+                        if ($scope.validator) {
+                            console.log("validator exists");
+                        }
+                    });
 
                 //$scope.validate(event)
                 //{
@@ -19,55 +31,43 @@
                 //    }
                 //}
 
-                //vm.toolbarOptions = {
-                //    items: [
-                //        {
-                //            type: "button",
-                //            text: "View Company List",
-                //            template:
-                //            '<a ng-if="vm.admin" ng-click="viewCompanies()" class="k-button k-button-icontext k-grid-upload">View Company List</a>'
-                //        },
-                //        {
-                //            type: "button",
-                //            text: "Edit",
-                //            template:
-                //            '<a ng-if="vm.editAllowed && !vm.editingData" ng-click="performEdit()" class="k-button k-button-icontext k-grid-upload">Edit</a>'
-                //        },
-                //        {
-                //            type: "button",
-                //            text: "Save",
-                //            template:
-                //            '<a ng-if="vm.editingData" ng-click="performSave()" class="k-button k-button-icontext k-grid-upload">Save</a>'
-                //        },
-                //        {
-                //            type: "button",
-                //            text: "Cancel",
-                //            template:
-                //            '<a ng-if="vm.editingData" ng-click="performCancel()" class="k-button k-button-icontext k-grid-upload">Cancel</a>'
-                //        }
-                //    ]
-                //};
+                $scope.onSuburbChange = function (suburb) {
+                    if ($scope.suburbs && suburb) {
+                        var dataItem = $scope.suburbs[suburb.sender.selectedIndex];
+                        if (dataItem) {
+                            $scope.postCode = dataItem.postCode.value;
+                            $scope.state = dataItem.postCode.state.name;
+                            $scope.country = dataItem.postCode.state.country.name;
+                            $scope.$apply();
+                        }
+                    }
+                };
 
+                $scope.dataBound = function (e) {
+                    e.sender.trigger("change");
+                };
+
+                $scope.onSuburbChange = function (suburb) {
+                    if ($scope.suburbs && suburb) {
+                        var dataItem = $scope.suburbs[suburb.sender.selectedIndex];
+                        if (dataItem) {
+                            $scope.postCode = dataItem.postCode.value;
+                            $scope.state = dataItem.postCode.state.name;
+                            $scope.country = dataItem.postCode.state.country.name;
+                            $scope.$apply;
+
+                        }
+                    }
+                };
+                
                 vm.panelBarOptions = {
                     expandMode: "multiple"
-                };
+                };     
 
-                $scope.performSave = function () {
-                    
-                };
-
-                $scope.performEdit = function () {
-                    
-                };
-
-                //cancel editing
-                $scope.performCancel = function () {
-                    
-                };
-
-                //view the company list
-                $scope.viewCompanies = function () {
-                    
+                $scope.validate = function (e) {
+                    if ($scope.validator) {
+                        $scope.validator.validate();
+                    }
                 };
 
             });
