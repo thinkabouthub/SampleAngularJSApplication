@@ -65,17 +65,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\search.html" />
     <Content Include="app\about.html" />
+    <Content Include="app\searchController.js" />
     <Content Include="app\contactController.js" />
     <Content Include="app\complexComponent.html" />
     <Content Include="app\complexComponent.js" />
     <Content Include="app\aboutController.js" />
     <Content Include="app\complexController.js" />
+    <Content Include="app\factories\listingsSearchFactory.js" />
     <Content Include="app\factories\suburbFactory.js" />
     <Content Include="app\home.html" />
     <Content Include="app\contact.html" />
+    <Content Include="app\listingsSearchComponent.css" />
+    <Content Include="app\listingsSearchComponent.html" />
+    <Content Include="app\listingsSearchComponent.js" />
+    <Content Include="app\listingsSearchController.js" />
+    <Content Include="app\services\listingsSearchService.js" />
     <Content Include="app\services\suburbService.js" />
     <Content Include="app\utilities\myResource.js" />
+    <Content Include="Content\bootstrap-tagsinput-typeahead.css" />
+    <Content Include="Content\bootstrap-tagsinput.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1753,6 +1763,13 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\bootstrap-tagsinput-angular.js" />
+    <Content Include="Scripts\bootstrap-tagsinput-angular.min.js" />
+    <Content Include="Scripts\bootstrap-tagsinput.js" />
+    <Content Include="Scripts\bootstrap-tagsinput.min.js" />
+    <Content Include="Scripts\bootstrap-tagsinput.min.js.map" />
+    <Content Include="Scripts\bootstrap-tagsinput-angular.min.js.map" />
+    <Content Include="Content\bootstrap-tagsinput.less" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

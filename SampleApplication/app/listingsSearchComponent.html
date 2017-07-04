@@ -1,0 +1,23 @@
+﻿<div>
+    <div class="panel panel-default panel-transparent">
+        <div align="left" class="panel-heading">{{ searchListingsLabel }}</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle btn-lg listingsSearchTypeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ searchListingsType }}<span class="caret listingsSearchTypeCaret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Buy</li>
+                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Rent</li>
+                        <li ng-click="listingTypeSelect($event)" role="separator" class="divider"></li>
+                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Sold</li>
+                    </ul>
+                </div><!-- /btn-group -->
+                <input id="from" type="text" class="form-control input-lg" ng-model="ListingsSearch.location.formattedAddress" placeholder="Search by state, suburb or postcode" autocomplete="off">
+                <span class="input-group-btn">
+                    <button ng-click="listingSearchClick()" type="button" class="btn btn-secondary btn-lg">Search</button>
+                </span>               
+            </div><!-- /input-group -->
+        </div>
+    </div>
+    <input type="text" class="form-control" data-role="tagsinput" id="tagPlaces">
+</div>

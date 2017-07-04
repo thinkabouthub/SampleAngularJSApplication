@@ -4,7 +4,7 @@
         return suburbFactory.search({ searchCriteria: "id=" + id, ts: Date.now() }).$promise;
     };
 
-    //simply returns the country list
+    //simply returns the suburb list
     this.list = function () {
         return suburbFactory.query({ ts: Date.now() }).$promise;
     };

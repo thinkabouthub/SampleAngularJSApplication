@@ -8,8 +8,7 @@
                 <li id="companyPanel" class="k-state-active">
                     <span>Panel Suburb</span>
                     <div style="padding: 10px;">
-                        <div class="form-group">
-                            <label for="suburb">Suburb*</label>
+
                             <select ng-disabled="!editingData" k-scope-field="suburb" name="suburb" id="suburb" style="width: 50%;"
                                     k-ng-model="$ctrl.data.suburbId"
                                     kendo-drop-down-list
@@ -20,7 +19,7 @@
                                     data-value-primitive="true"
                                     k-change="onSuburbChange"
                                     required></select>
-                        </div>
+
                         <div class="form-group">
                             <label style="width: 130px" for="postCode">Post Code:</label>
                             <input ng-disabled="true" style="width: 50px" id="postCode" ng-model="postCode" />
