@@ -12,12 +12,15 @@
                         <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Sold</li>
                     </ul>
                 </div><!-- /btn-group -->
-                <input id="from" type="text" class="form-control input-lg" ng-model="ListingsSearch.location.formattedAddress" placeholder="Search by state, suburb or postcode" autocomplete="off">
+                <select id="listingsSearchCtrl" kendo-multi-select k-options="selectOptions" class="form-control input-lg"></select>
+                <!--<input id="from" type="text" class="form-control input-lg" ng-model="ListingsSearch.location.formattedAddress" placeholder="Search by state, suburb or postcode" autocomplete="off">-->
                 <span class="input-group-btn">
                     <button ng-click="listingSearchClick()" type="button" class="btn btn-secondary btn-lg">Search</button>
                 </span>               
             </div><!-- /input-group -->
         </div>
     </div>
-    <input type="text" class="form-control" data-role="tagsinput" id="tagPlaces">
+    <!--<input type="text" class="form-control" data-role="tagsinput" id="tagPlaces">-->
+    <!--<select kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds" class="input-lg"></select>
+    <p ng-show="selectedIds.length" style="padding-top: 1em;">Selected: {{ selectedIds }}</p>-->
 </div>
