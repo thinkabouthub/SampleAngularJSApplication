@@ -11,7 +11,7 @@
 }
 
 .listingsSearchTypeButton {
-    min-width: 120px;
+    min-width: 100px;
     text-align: left;
 }
 
@@ -51,14 +51,12 @@
 }
 
 
-
-
 .InputAddOn {
     display: flex;
 }
 
 .InputAddOn-field {
-    flex: 1;
+    flex-grow:1
     /* field styles */
 }
 
