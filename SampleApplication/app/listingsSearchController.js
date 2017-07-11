@@ -11,7 +11,7 @@
         $scope.searchListingsFilter = {
             "latitude": null,
             "longitude": null,
-            "filter": null
+            "query": null
         };
 
         window.navigator.geolocation.getCurrentPosition(function(pos) {
@@ -26,16 +26,19 @@
             dataValueField: "address",
             valuePrimitive: true,
             autoBind: false,
-
+            maxSelectedItems: 5,
+            headerTemplate: '<div class="listingsSearch-dropdown-header">' +
+                '<span><img src="../Content/images/google_pin_small.png" /></span>' +
+                '<span>Sugguestions</span>' +
+                '</div>',
             dataSource: {
-                dataType: "json",
                 filter: "contains",
                 serverFiltering: true,
-                type: "GET",
                 transport: {
                     read: {
+                        dataType: "json",
                         data: getSearchListingsFilter,
-                        url: "http://localhost:5000/api/realestate/listingssearch"
+                        url: "http://localhost:5000/api/realestate/listingssearch/search"
                     }
                 }
             },
@@ -43,13 +46,9 @@
             filtering: function (e) {
 
                 var filter = e.filter;
-                $scope.searchListingsFilter.Filter = filter === undefined ? null : filter.value;
+                $scope.searchListingsFilter.query = filter === undefined ? null : filter.value;
 
             },
-        }
-
-        function getPosition(pos) {
-            $scope.searchListingsFilter = { "latitude": pos.coords.latitude, "longitude": pos.coords.longitude, "filter" : null }
         }
 
         function getSearchListingsFilter() {

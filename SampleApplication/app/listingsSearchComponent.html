@@ -1,26 +1,17 @@
 ﻿<div>
-    <div class="panel panel-default panel-transparent">
-        <div align="left" class="panel-heading">{{ searchListingsLabel }}</div>
-        <div class="panel-body">
-            <div class="input-group">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle btn-lg listingsSearchTypeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ searchListingsType }}<span class="caret listingsSearchTypeCaret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Buy</li>
-                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Rent</li>
-                        <li ng-click="listingTypeSelect($event)" role="separator" class="divider"></li>
-                        <li class="listingsSearchItem li-lg" ng-click="listingTypeSelect($event)">Sold</li>
-                    </ul>
-                </div><!-- /btn-group -->
-                <select id="listingsSearchCtrl" kendo-multi-select k-options="selectOptions" class="form-control input-lg"></select>
-                <!--<input id="from" type="text" class="form-control input-lg" ng-model="ListingsSearch.location.formattedAddress" placeholder="Search by state, suburb or postcode" autocomplete="off">-->
-                <span class="input-group-btn">
-                    <button ng-click="listingSearchClick()" type="button" class="btn btn-secondary btn-lg">Search</button>
-                </span>               
-            </div><!-- /input-group -->
+    <div align="left" class="panel-heading">{{ searchListingsLabel }}</div>
+    <div class="InputAddOn">
+        <div class="dropdown btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ searchListingsType }}
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Buy</button>
+                <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Rent</button>
+                <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Sold</button>
+            </div>        
         </div>
+        <select id="listingsSearchCtrl" kendo-multi-select k-options="selectOptions" class="InputAddOn-field listingsSearch-lg"></select>
+        <button ng-click="listingSearchClick()" type="button" class="btn btn-lg InputAddOn-item listingsSearchButton">Search</button>
     </div>
-    <!--<input type="text" class="form-control" data-role="tagsinput" id="tagPlaces">-->
-    <!--<select kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds" class="input-lg"></select>
-    <p ng-show="selectedIds.length" style="padding-top: 1em;">Selected: {{ selectedIds }}</p>-->
 </div>
