@@ -1,6 +1,6 @@
-﻿<div>
+﻿<div class="listingsSearch">
     <div align="left" class="panel-heading">{{ searchListingsLabel }}</div>
-    <div class="InputAddOn">
+    <div class="listingsSearchGroup">
         <div class="dropdown btn-group">
             <button class="btn btn-secondary dropdown-toggle listingsSearchTypeButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ searchListingsType }}
@@ -9,9 +9,10 @@
                 <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Buy</button>
                 <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Rent</button>
                 <button class="dropdown-item" type="button" ng-click="listingTypeSelect($event)">Sold</button>
-            </div>        
+            </div>
         </div>
-        <select id="listingsSearchCtrl" kendo-multi-select k-options="selectOptions" class="InputAddOn-field listingsSearch-lg"></select>
-        <button ng-click="listingSearchClick()" type="button" class="btn btn-lg InputAddOn-item listingsSearchButton">Search</button>
+        <select id="listingsSearchCtrl" kendo-multi-select k-options="selectOptions" class="listingsSearchSelect"></select>
+        <button ng-click="listingSearchClick()" type="button" class="btn btn-lg listingsSearchButton" ng-disabled="!isListingSearchEnabled">Search</button>
     </div>
 </div>
+

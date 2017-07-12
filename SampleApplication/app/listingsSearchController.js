@@ -5,8 +5,14 @@
 
     function listingsSearch($scope, listingsSearchService) {
         var vm = this;
-        $scope.searchListingsLabel = "Search properties for sale"
-        $scope.searchListingsType = "Buy"
+        $scope.searchListingsLabel = "Search properties for sale";
+        $scope.searchListingsPlaceholder = "Search by state, suburb or postcode";
+        $scope.searchListingsType = "Buy";
+        $scope.isListingSearchEnabled = false;
+        //$scope.listingSearchButtonTooltip = "Search is empty!"
+
+        // Select all elements with data-toggle="tooltips" in the document
+        $('[data-toggle="tooltip"]').tooltip(); 
 
         $scope.searchListingsFilter = {
             "latitude": null,
@@ -29,7 +35,7 @@
             maxSelectedItems: 5,
             headerTemplate: '<div class="listingsSearch-dropdown-header">' +
                 '<span><img src="../Content/images/google_pin_small.png" /></span>' +
-                '<span>Sugguestions</span>' +
+                '<span>Suggestions</span>' +
                 '</div>',
             dataSource: {
                 filter: "contains",
@@ -43,47 +49,22 @@
                 }
             },
 
-            filtering: function (e) {
+            filtering: function(e) {
 
                 var filter = e.filter;
                 $scope.searchListingsFilter.query = filter === undefined ? null : filter.value;
 
             },
-        }
+
+            change: function (e) {
+                $scope.isListingSearchEnabled = e.sender._old.length > 0;
+                //$scope.$apply();
+            }
+        };
 
         function getSearchListingsFilter() {
             return $scope.searchListingsFilter;
-        }
-
-        //function getPlaces(filter)
-        //{
-        //    var service = new google.maps.places.AutocompleteService();
-        //    service.
-        //}
-
-        //$scope.selectedIds = [4, 7];
-
-
-        //var options = {
-        //    //componentRestrictions: { country: "in" }
-        //};
-        //var inputFrom = document.getElementById('from');
-        //var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, options);
-        //google.maps.event.addListener(autocompleteFrom, 'place_changed', function () {
-        //    var place = autocompleteFrom.getPlace();
-        //    $scope.ListingsSearch.location.Lat = place.geometry.location.lat();
-        //    $scope.ListingsSearch.location.Lng = place.geometry.location.lng();
-        //    $scope.ListingsSearch.location.formattedAddress = place.formatted_address;
-        //    $scope.ListingsSearch.location.streetNumber = getPlaceComponents(place, "street_number");
-        //    $scope.ListingsSearch.location.address = getPlaceComponents(place, "route");
-        //    $scope.ListingsSearch.location.suburb = getPlaceComponents(place, "locality");
-        //    $scope.ListingsSearch.location.city = getPlaceComponents(place, "administrative_area_level_2");
-        //    $scope.ListingsSearch.location.state = getPlaceComponents(place, "administrative_area_level_1");
-        //    $scope.ListingsSearch.location.country = getPlaceComponents(place, "country");
-        //    $scope.ListingsSearch.location.postCode = getPlaceComponents(place, "postal_code");
-        //    $scope.$apply();
-        //});
-
+        };
 
         $scope.listingSearchClick = function () {
             $scope.$broadcast("listingsSearchEvent", $scope.location);
@@ -105,15 +86,5 @@
                 $scope.searchListingsLabel = "Search sold properties";
             }
         };
-
-        function getPlaceComponents(place, component, isLong) {
-            for (var i = 0; i < place.address_components.length; i++) {
-                for (var j = 0; j < place.address_components[i].types.length; j++) {
-                    if (place.address_components[i].types[j] === component) {
-                        return isLong === true ? place.address_components[i].long_name : place.address_components[i].short_name;
-                    }
-                }
-            }
-        }
     }
 })();

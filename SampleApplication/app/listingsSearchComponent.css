@@ -1,68 +1,88 @@
-﻿.panel-transparent {
-    background: none;
+﻿@media (min-width: 600px) {
+    .listingsSearch {
+        min-width: 100%;
+    }
+
+    .listingsSearch .listingsSearchTypeButton {
+        min-width: 100px;
+        text-align: left;
+    }
+
+    .listingsSearch .listingsSearchButton {
+        background-color: black;
+        color: white;
+    }
+
+    .listingsSearch .k-multiselect-wrap {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+        border-radius: 0.3rem;
+    }
+
+    /*.listingsSearch .k-multiselect > span {
+        content:"Search"
+    }
+
+    .listingsSearch .k-multiselect-wrap > .k-input:focus {
+        color: blueviolet; 
+    }*/
+
+    /*.listingsSearch .listingsSearchSelect {
+    }*/
+
+    .listingsSearch .listingsSearchGroup {
+        display: flex;
+    }
+
+    .listingsSearch .listingsSearchSelect {
+        flex-grow: 1
+    }
+
+    .listingsSearch-dropdown-header {
+        border-width: 0 0 1px 0;
+        /*font-weight: bold;*/
+        /*text-transform: lowercase;*/
+    }
+
+    .listingsSearch-dropdown-header > span {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .listingsSearch-dropdown-header > span > img {
+        height: 20px;
+    }
+
+    .listingsSearch-dropdown-header > span:first-child {
+        width: 10px;
+    }
 }
 
-.panel-transparent .panel-heading{
-    background: rgba(122, 130, 136, 0.2)!important;
+.panel-transparent .panel-heading {
+    background: rgba(122, 130, 136, 0.2) !important;
 }
 
-.panel-transparent .panel-body{
-    background: rgba(46, 51, 56, 0.2)!important;
+.panel-transparent .panel-body {
+    background: rgba(46, 51, 56, 0.2) !important;
 }
 
-.listingsSearchTypeButton {
-    min-width: 100px;
-    text-align: left;
+@media (max-width: 600px) {
+    .listingsSearch .listingsSearchTypeButton {
+        min-width: 100%;
+        text-align: left;
+    }
+
+    .listingsSearch .btn-group {
+        min-width: 100%;
+    }
+
+    .listingsSearch .listingsSearchButton {
+        background-color: black;
+        color: white;
+        min-width: 100%;
+    }
+
+    .listingsSearch .listingsSearchGroup {
+        min-width: 100%;
+    }
 }
-
-.listingsSearchButton {
-    background-color: blue;
-    color: white;
-}
-
-.listingsSearch-lg .k-multiselect-wrap {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.25rem;
-    border-radius: 0.3rem;
-}
-
-.listingsSearch-lg {
-    padding-left: 3px;
-    padding-right: 3px
-}
-
-.listingsSearch-dropdown-header {
-    border-width: 0 0 1px 0;
-    font-weight: bold;
-    /*text-transform: lowercase;*/
-}
-
-.listingsSearch-dropdown-header > span {
-    display: inline-block;
-    padding: 10px;
-}
-
-.listingsSearch-dropdown-header > span > img {
-    height: 20px;
-}
-
-.listingsSearch-dropdown-header > span:first-child {
-    width: 10px;
-}
-
-
-.InputAddOn {
-    display: flex;
-}
-
-.InputAddOn-field {
-    flex-grow:1
-    /* field styles */
-}
-
-.InputAddOn-item {
-    /* item styles */
-}
-
-
-
